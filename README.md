@@ -1,6 +1,6 @@
 # CMPS 2200  Recitation 01
 
-**Name (Team Member 1):**_________________________  
+**Name (Team Member 1):** Chase LaRocca  
 **Name (Team Member 2):**_________________________
 
 In this recitation, we will investigate asymptotic complexity. Additionally, we will get familiar with the various technologies we'll use for recitations and assignments for this semester.
@@ -46,11 +46,13 @@ We'll compare the running times of `linear_search` and `binary_search` empirical
 
 - [ ] 4. Describe the worst case input value of `key` for `linear_search`? for `binary_search`? 
 
-**TODO: your answer goes here**
+Answer: The worst case key value for linear search would be the largest number in the list. The worst case
+        for binary search would be either the first or the last value. 
 
 - [ ] 5. Describe the best case input value of `key` for `linear_search`? for `binary_search`? 
 
-**TODO: your answer goes here**
+Answer: The best case for linear search would be the smallest number at the beginning of the list. The best case
+        for binary search would be the number in the exact center of the list.
 
 - [ ] 6. Complete the `time_search` function to compute the running time of a search function. Note that this is an example of a "higher order" function, since one of its parameters is another function.
 
@@ -58,13 +60,13 @@ We'll compare the running times of `linear_search` and `binary_search` empirical
 
 - [ ] 8. Call `print_results(compare_search())` and paste the results here:
 
-**TODO: add your timing results here**
+Answer: [(-1, 0.0, 0.0), (-1, 0.0, 0.0), (-1, 0.0, 0.0), (-1, 0.0009670257568359375, 0.0), (-1, 0.0, 0.0), (-1, 0.0, 0.0), (-1, 0.0, 0.0)]
 
 - [ ] 9. The theoretical worst-case running time of linear search is $O(n)$ and binary search is $O(log_2(n))$. Do these theoretical running times match your empirical results? Why or why not?
 
-**TODO: your answer goes here**
+Answer: Yes because linear search only involves a single loop through a single list of unknown size. Binary search includes a recursive loop through 2 lists of but would still have a runtime off O(log n)
 
 - [ ] 10. Binary search assumes the input list is already sorted. Assume it takes $\Theta(n^2)$ time to sort a list of length $n$. Suppose you know ahead of time that you will search the same list $k$ times. 
-  + What is worst-case complexity of searching a list of $n$ elements $k$ times using linear search? **TODO: your answer goes here**
-  + For binary search? **TODO: your answer goes here**
-  + For what values of $k$ is it more efficient to first sort and then use binary search versus just using linear search without sorting? **TODO: your answer goes here**
+  + What is worst-case complexity of searching a list of $n$ elements $k$ times using linear search? Answer: O(n)
+  + For binary search? Answer: O(log n)
+  + For what values of $k$ is it more efficient to first sort and then use binary search versus just using linear search without sorting? Answer: The smallest values in the list
