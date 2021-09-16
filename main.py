@@ -22,6 +22,7 @@ def test_linear_search():
 
 def binary_search(mylist, key):
 	""" done. """
+	##print(len(mylist)-1)
 	return _binary_search(mylist, key, 0, len(mylist)-1)
 
 def _binary_search(mylist, key, left, right):
@@ -38,14 +39,36 @@ def _binary_search(mylist, key, left, right):
 	  index of key in mylist, or -1 if not present.
 	"""
 	### TODO
-	pass
+
+	if left <= right:
+		mid = (right + left) // 2
+		print("------------START-------------")
+		print("This is the middle: ", mid)
+		print("This is the key: ", key)
+		print("-------------------------")
+
+		if mylist[mid] == key:
+			return mid
+
+		elif mylist[mid] > key:
+			print("Current list position greater: ", mylist[mid])
+			print("------------END-------------")
+			return _binary_search(mylist, key, left, mid - 1)
+		else:
+			print("Current list position less than: ", mylist[mid])
+			print("------------END-------------")
+			return _binary_search(mylist, key, mid + 1, right)
+	else:
+		return -1
 
 def test_binary_search():
-	assert binary_search([1,2,3,4,5], 5) == 4
+
+	assert binary_search([1,2,3,4,5], 5) == 4 ## five is in the fourth index
 	assert binary_search([1,2,3,4,5], 1) == 0
 	assert binary_search([1,2,3,4,5], 6) == -1
-	### TODO: add two more tests here.
-	pass
+	assert binary_search([1,2,3,4,5,6,7,8,9,10], 2) == 1
+	assert binary_search([4,2,0,5,1,6], 6) == 5
+
 
 
 def time_search(search_fn, mylist, key):
@@ -67,7 +90,15 @@ def time_search(search_fn, mylist, key):
 	  search function on this input.
 	"""
 	### TODO
-	pass
+
+	time_start = time.time()
+
+	search_fn(mylist, key)
+
+	time_to_complete =  time.time() - time_start
+
+	return time_to_complete
+
 
 def compare_search(sizes=[1e1, 1e2, 1e3, 1e4, 1e5, 1e6, 1e7]):
 	"""
@@ -85,6 +116,17 @@ def compare_search(sizes=[1e1, 1e2, 1e3, 1e4, 1e5, 1e6, 1e7]):
 	  for each method to run on each value of n
 	"""
 	### TODO
+
+	time_results = []
+	for i in range(int(len(sizes))):
+
+		binary_time = time_search(binary_search, sizes, -1)
+		linear_time = time_search(linear_search, sizes, -1)
+
+		time_results.append(tuple([-1, binary_time, linear_time]))
+
+	return(time_results)
+
 	pass
 
 def print_results(results):
@@ -93,6 +135,7 @@ def print_results(results):
 		headers=['n', 'linear', 'binary'],
 		floatfmt=".3f",
 		tablefmt="github"))
+	print("Done")
 
 def test_compare_search():
 	res = compare_search(sizes=[10, 100])
@@ -101,3 +144,6 @@ def test_compare_search():
 	assert res[1][0] == 100
 	assert res[0][1] < 1
 	assert res[1][1] < 1
+
+
+print(compare_search())
