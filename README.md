@@ -60,7 +60,17 @@ Answer: The best case for linear search would be the smallest number at the begi
 
 - [ ] 8. Call `print_results(compare_search())` and paste the results here:
 
-Answer: [(-1, 0.0, 0.0), (-1, 0.0, 0.0), (-1, 0.0, 0.0), (-1, 0.0009670257568359375, 0.0), (-1, 0.0, 0.0), (-1, 0.0, 0.0), (-1, 0.0, 0.0)]
+Answer: 
+
+|   n |   linear |   binary |
+|-----|----------|----------|
+|  -1 |    0.000 |    0.000 |
+|  -1 |    0.000 |    0.000 |
+|  -1 |    0.000 |    0.000 |
+|  -1 |    0.000 |    0.000 |
+|  -1 |    0.000 |    0.000 |
+|  -1 |    0.000 |    0.000 |
+|  -1 |    0.000 |    0.000 |
 
 - [ ] 9. The theoretical worst-case running time of linear search is $O(n)$ and binary search is $O(log_2(n))$. Do these theoretical running times match your empirical results? Why or why not?
 
